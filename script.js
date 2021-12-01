@@ -1,37 +1,36 @@
-// declare computer's choices
-// computer chooses
-const gameArray = ['Rock', 'Paper', 'Scissors'];
-function computerPlay() {
-    const random = Math.floor(Math.random() * gameArray.length);
-    switch (random) {
-        case 0:
-            return 'Rock';
-        case 1:
-            return 'Paper';
-        case 2:
-            return 'Scissors';
+// computer chooses from array
+
+const computerPlay = () => {
+    const gameArray = ['rock', 'paper', 'scissors'];
+    let selector = Math.floor(Math.random() * gameArray.length);
+    switch (selector) {
+        case 0: return 'rock';
+        case 1: return 'paper';
+        case 2: return 'scissors';
     }
 }
 
-// round played by comparing computer's random choice and player's input
+// player inputs choice via prompt
+// alert pops up if there is no input
 
-function playRound(playerSelection, computerSelection) {
-    let message = '';
-    if ((playerSelection === 'Rock' && computerSelection === 'Scissors') || (playerSelection === 'Paper' && computerSelection === 'Rock') || (playerSelection === 'Scissors' && computerSelection === 'Paper'))
-    { message = "You win!" }
-    else if ((playerSelection === 'Rock' && computerSelection === 'Paper') || (playerSelection === 'Paper' && computerSelection === 'Scissors') || (playerSelection === 'Scissors' && computerSelection === 'Rock'))
-    { message = "You lose!" }
-    else ((playerSelection === 'Rock' && computerSelection === 'Rock') || (playerSelection === 'Paper' && computerSelection === 'Paper') || (playerSelection === 'Scissors' && computerSelection === 'Scissors'))
-    { message = "Tie!" }
-    return message;
-}
-
-const playerSelection = playerPlay();
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
-
-
-function playerPlay() {
-    const playerChoice = prompt("Select your choice: rock, paper or scissors");
+const playerPlay = () => {
+    let playerChoice = prompt('Type your choice: rock, paper or scissors', '');
+    if (playerChoice == '') { alert('No input!');
+    }
     return playerChoice.toLowerCase();
 }
+
+// single round takes two parameters which have values of function expressions
+
+const gameRound = function (playerSelection, computerSelection) {
+    if ((playerSelection === 'rock' && computerSelection === 'scissors') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissors' && computerSelection === 'paper')) {
+        return 'Player wins!';
+    } else if ((playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'scissors') || (playerSelection === 'scissors' && computerSelection === 'rock')) {
+        return 'Player loses!';
+    } else {
+        return 'Draw!';
+    }
+}
+let playerSelection = playerPlay();
+let computerSelection = computerPlay();
+console.log(gameRound(playerSelection, computerSelection));
