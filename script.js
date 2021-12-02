@@ -17,7 +17,8 @@ const computerPlay = () => {
 
 const playerPlay = () => {
     let playerChoice = prompt('Type your choice: rock, paper or scissors', '');
-    if (playerChoice == '') { alert('No input!');
+    if (playerChoice == '') {
+        alert('No input!');
     }
     return playerChoice.toLowerCase();
 }
@@ -26,10 +27,18 @@ const playerPlay = () => {
 // an if else conditional is used to check and compare player and computer values
 
 const gameRound = function (playerSelection, computerSelection) {
-    if ((playerSelection === 'rock' && computerSelection === 'scissors') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissors' && computerSelection === 'paper')) {
-        return 'Player wins!';
-    } else if ((playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'scissors') || (playerSelection === 'scissors' && computerSelection === 'rock')) {
-        return 'Player loses!';
+    if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        return 'Player wins! Rock beats scissors!';
+    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        return 'Player wins! Paper beats rock!';
+    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        return 'Player wins! Scissors beat paper!';
+    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+        return 'Player loses! Paper beats rock!';
+    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+        return 'Player loses! Scissors beat paper!';
+    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+        return 'Player loses! Rock beats scissors!';
     } else if (playerSelection === computerSelection) {
         return 'Tie!';
     } else {
