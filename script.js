@@ -30,6 +30,7 @@ const playerPlay = () => {
 
 //let playerSelection = playerPlay();
 //let computerSelection = computerPlay();
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -65,6 +66,7 @@ const gameRound = function (playerSelection, computerSelection) {
         return 'Invalid input!';
     }
 }
+
 // game function runs gameRound five times
 // keeps score with two variables for player and computer respectively
 // returns message who won
@@ -86,7 +88,7 @@ const game = () => {
     console.log(result);
 };
 
-game();
 //test run and console log one round
 
+//game();
 //console.log(gameRound(playerPlay(), computerPlay());
