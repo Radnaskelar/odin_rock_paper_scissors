@@ -14,6 +14,7 @@ const computerPlay = () => {
 
 // player inputs choice via prompt
 // alert pops up if there is no input
+// .toLowerCase() method used for disabling case sensitivity
 
 const playerPlay = () => {
     let playerChoice = prompt('Type your choice: rock, paper or scissors', '');
@@ -25,26 +26,67 @@ const playerPlay = () => {
 
 // single round takes two parameters which have values of function expressions
 // an if else conditional is used to check and compare player and computer values
+// returns string declaring win, loss or tie
+
+//let playerSelection = playerPlay();
+//let computerSelection = computerPlay();
+let playerScore = 0;
+let computerScore = 0;
 
 const gameRound = function (playerSelection, computerSelection) {
     if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return 'Player wins! Rock beats scissors!';
+        playerScore++;
+        console.log('Player wins! Rock beats scissors!' + ' ' + `player: ${playerScore}, computer: ${computerScore}`);
+        return playerScore, computerScore;
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return 'Player wins! Paper beats rock!';
+        playerScore++;
+        console.log('Player wins! Paper beats rock!' + ' ' + `player: ${playerScore}, computer: ${computerScore}`);
+        return playerScore, computerScore;
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return 'Player wins! Scissors beat paper!';
+        playerScore++;
+        console.log('Player wins! Scissors beat paper!' + ' ' + `player: ${playerScore}, computer: ${computerScore}`);
+        return playerScore, computerScore;
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return 'Player loses! Paper beats rock!';
+        computerScore++;
+        console.log('Player loses! Paper beats rock!' + ' ' + `player: ${playerScore}, computer: ${computerScore}`);
+        return playerScore, computerScore;
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        return 'Player loses! Scissors beat paper!';
+        computerScore++;
+        console.log('Player loses! Scissors beat paper!' + ' ' + `player: ${playerScore}, computer: ${computerScore}`);
+        return playerScore, computerScore;
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return 'Player loses! Rock beats scissors!';
+        computerScore++;
+        console.log('Player loses! Rock beats scissors!' + ' ' + `player: ${playerScore}, computer: ${computerScore}`);
+        return playerScore, computerScore;
     } else if (playerSelection === computerSelection) {
-        return 'Tie!';
+        console.log('Tie!' + ' ' + `player: ${playerScore}, computer: ${computerScore}`);
+        return playerScore, computerScore;
     } else {
         return 'Invalid input!';
     }
 }
-let playerSelection = playerPlay();
-let computerSelection = computerPlay();
-console.log(gameRound(playerSelection, computerSelection));
+// game function runs gameRound five times
+// keeps score with two variables for player and computer respectively
+// returns message who won
+
+const game = () => {
+    let result;
+
+    gameRound(playerPlay(), computerPlay());
+    gameRound(playerPlay(), computerPlay());
+    gameRound(playerPlay(), computerPlay());
+    gameRound(playerPlay(), computerPlay());
+    gameRound(playerPlay(), computerPlay());
+
+    if (playerScore > computerScore) {
+        result = 'You win!';
+    } else {
+        result = 'You lose!';
+    }
+    console.log(result);
+};
+
+game();
+//test run and console log one round
+
+//console.log(gameRound(playerPlay(), computerPlay());
