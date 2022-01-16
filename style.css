@@ -1,0 +1,32 @@
+button {
+    background-color: gold;
+    font-family:fantasy;
+    font-style: oblique;
+    color: black;
+    padding: 20px;
+    font-size: 20px;
+    margin: 10px;
+}
+
+div {
+    min-height: 100px;
+    font-size: 20px;
+}
+
+div.buttons {
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    min-height: 100px;
+    background-color: coral;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game {
+    margin: 0px 150px;
+}
